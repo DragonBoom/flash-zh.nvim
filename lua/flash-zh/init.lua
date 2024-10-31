@@ -164,7 +164,7 @@ function M.parser(str, prefix)
             str = string.sub(str, 3, -1)
             return M.parser(str, prefix)
         end
-    elseif string.match(firstchar, "[%.,?'\"%[%];:]") then
+    elseif string.match(firstchar, "[%.,?'\"%[%];:()]") then
         prefix[#prefix + 1] = { str = firstchar, type = "comma" }
         str = string.sub(str, 2, -1)
         return M.parser(str, prefix)
